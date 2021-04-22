@@ -19,7 +19,10 @@ NAME	= philo_one
 
 SRC		= main.c \
 		  table.c \
-		  tools.c
+		  tools.c \
+		  tools2.c \
+		  routine.c \
+		  dinner.c \
 
 SRCS	= $(addprefix $(SRC_DIR), $(SRC))
 

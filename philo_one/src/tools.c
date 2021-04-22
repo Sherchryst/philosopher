@@ -6,11 +6,31 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 21:25:33 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/22 15:27:03 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/22 18:22:37 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_one.h"
+
+void
+	ft_usleep(unsigned int time_wait)
+{
+	struct timeval	time;
+
+	gettimeofday(&time, NULL);
+	while (time_lapse(time) < time_wait)
+		usleep(500);
+}
+
+unsigned int
+	time_lapse(struct timeval time)
+{
+	struct timeval	current;
+
+	gettimeofday(&current, NULL);
+	return (((current.tv_sec * 1000000 + current.tv_usec) -
+				(time.tv_sec * 1000000 + time.tv_usec)) / 1000);
+}
 
 int
 	get_value(char *val)

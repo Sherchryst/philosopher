@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 20:08:46 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/22 00:42:20 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/22 18:12:40 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,15 @@
 # define TYPEDEF_H
 
 # include "philo_one.h"
+
+static const char	*g_msg[5] =
+{
+	"died",
+	"is thinking",
+	"is eating",
+	"is sleeping",
+	"has taken a fork"
+};
 
 typedef struct		s_fork
 {
