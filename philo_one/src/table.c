@@ -6,11 +6,44 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 21:11:57 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/22 12:23:46 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/22 17:17:09 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_one.h"
+
+void
+	take_a_seat(t_philosopher *table, t_philo *philo, int place)
+{
+	philo->info_philo = table;
+	philo->state = 1;
+	philo->id = place + 1;
+	philo->eat = 0;
+	philo->r_fork = &table->forks[place];
+	philo->last_eat = 0;
+	philo->l_fork = (place + 1 == table->nb_philo) ?
+					&table->forks[0] : &table->forks[place + 1];
+}
+
+int
+	share_the_forks(t_philosopher *table, t_fork **forks)
+{
+	int	i;
+
+	i = 0;
+	*forks = (t_fork*)malloc(sizeof(t_fork) * table->nb_philo);
+	if (*forks == NULL)
+		return (-1);
+	pthread_mutex_init(table->print, NULL);
+	while (i < table->nb_philo)
+	{
+		(*forks)[i].fork = (pthread_mutex_t*)malloc(sizeof(pthread_mutex_t));
+		pthread_mutex_init((*forks)[i].fork, NULL);
+		(*forks)[i].free_fork = 0;
+		i++;
+	}
+	return (0);
+}
 
 int
 	set_the_table(t_philosopher **table)
