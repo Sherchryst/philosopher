@@ -10,15 +10,16 @@ _Purple=\033[1;35m
 BWhite="\[\033[1;37m\]"       # White
 
 # DIRECTORIES
-BUILD	= ./build
+BUILD	= ./.build
 
 SRC_DIR	= ./src/
 
 # FILES
 NAME	= philo_one
-LIBFT	= ./libft/libft.a
 
-SRC		=
+SRC		= main.c \
+		  table.c \
+		  tools.c
 
 SRCS	= $(addprefix $(SRC_DIR), $(SRC))
 
@@ -31,16 +32,21 @@ CFLAGS	= -Wall -Werror -Wextra -Ofast -fno-builtin
 DFLAGS	= -MP -MMD
 INC		= -I./include
 
-$(NAME): $(LIBFT) $(OBJ)
-	@$(CC) $(INC) $(OBJ) $(LIBFT) -o $(NAME)
+$(NAME):$(OBJ)
+	@$(CC) $(INC) $(OBJ) -o $(NAME) -lpthread
 	@echo ""
 	@echo "${_GREEN}The executable file of ${Color_Off}${_Orange}"
-	@echo "${Color_Off}"
+	@echo "   ▄███████▄    ▄█    █▄     ▄█   ▄█        ▄██████▄            ▄██████▄  ███▄▄▄▄      ▄████████ "
+	@echo "  ███    ███   ███    ███   ███  ███       ███    ███          ███    ███ ███▀▀▀██▄   ███    ███ "
+	@echo "  ███    ███   ███    ███   ███▌ ███       ███    ███          ███    ███ ███   ███   ███    █▀  "
+	@echo "  ███    ███  ▄███▄▄▄▄███▄▄ ███▌ ███       ███    ███          ███    ███ ███   ███  ▄███▄▄▄     "
+	@echo "▀█████████▀  ▀▀███▀▀▀▀███▀  ███▌ ███       ███    ███          ███    ███ ███   ███ ▀▀███▀▀▀     "
+	@echo "  ███          ███    ███   ███  ███       ███    ███          ███    ███ ███   ███   ███    █▄  "
+	@echo "  ███          ███    ███   ███  ███▌    ▄ ███    ███          ███    ███ ███   ███   ███    ███ "
+	@echo " ▄████▀        ███    █▀    █▀   █████▄▄██  ▀██████▀  ▀██████▀  ▀██████▀   ▀█   █▀    ██████████ "
+	@echo "                                 ▀                                                 ${Color_Off}"
 	@echo "                                                                             ${_GREEN}Has been created!${Color_Off}"
 
-
-$(LIBFT):
-	@make bonus -C ./libft
 
 all: $(NAME)
 
@@ -50,14 +56,13 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@make -C ./libft fclean
 	@echo "\033[1;34mExecute:\t\033[1;33mCleaning exec\t\033[0;32m[OK]\033[0m"
 
 re: fclean all
 
 $(BUILD):
 	@echo "\033[1;32m\nCreation of .build\033[0m \n"
-	@mkdir $@ $(BUILD)
+	@mkdir $@
 
 $(BUILD)/%.o: $(SRC_DIR)%.c | $(BUILD)
 	@printf "\033[1;34mExecute: \t\033[1;33mCompilation of \033[1;36m$(notdir $<) \033[0m \
