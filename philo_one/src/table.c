@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 21:11:57 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/22 17:17:09 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/23 22:17:59 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,25 @@ void
 					&table->forks[0] : &table->forks[place + 1];
 }
 
-int
-	share_the_forks(t_philosopher *table, t_fork **forks)
+t_fork
+	*share_the_forks(t_philosopher *table)
 {
-	int	i;
+	int		i;
+	t_fork	*forks;
 
 	i = 0;
-	*forks = (t_fork*)malloc(sizeof(t_fork) * table->nb_philo);
-	if (*forks == NULL)
-		return (-1);
+	forks = (t_fork*)malloc(sizeof(t_fork) * table->nb_philo);
+	if (forks == NULL)
+		return (NULL);
 	pthread_mutex_init(table->print, NULL);
 	while (i < table->nb_philo)
 	{
-		(*forks)[i].fork = (pthread_mutex_t*)malloc(sizeof(pthread_mutex_t));
-		pthread_mutex_init((*forks)[i].fork, NULL);
-		(*forks)[i].free_fork = 0;
+		forks[i].fork = (pthread_mutex_t*)malloc(sizeof(pthread_mutex_t));
+		pthread_mutex_init(forks[i].fork, NULL);
+		forks[i].free_fork = 0;
 		i++;
 	}
-	return (0);
+	return (forks);
 }
 
 int

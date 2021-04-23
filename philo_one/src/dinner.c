@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 14:46:56 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/23 20:57:04 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/23 22:13:03 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void
 	while (1)
 	{
 		usleep(200);
-		if ((int)time_lapse(table->start) - philos[i].last_eat > table->time_die)
+		if ((int)time_lapse(table->start) - philos[i].last_eat\
+												> table->time_die)
 		{
 			table->is_dead++;
 			printf("%u %i %s\n", time_lapse(philos[i].info_philo->start),
@@ -76,4 +77,3 @@ void
 		pthread_create(plate + i, NULL, init_routine, philos + i);
 	manage_dinner(table, philos, plate);
 }
-
