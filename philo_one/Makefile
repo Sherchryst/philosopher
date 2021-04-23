@@ -22,7 +22,7 @@ SRC		= main.c \
 		  tools.c \
 		  tools2.c \
 		  routine.c \
-		  dinner.c \
+		  dinner.c
 
 SRCS	= $(addprefix $(SRC_DIR), $(SRC))
 
