@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 19:53:57 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/22 16:20:41 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/23 14:01:49 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ int
 		return (endofdinner(table));
 	}
 	init_dinner(table);
-	endofdinner(table);
 	return (0);
 }
