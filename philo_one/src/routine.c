@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 17:23:05 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/23 14:18:49 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/23 14:20:33 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int
 t_philo
 	*routine(t_philo *philo, t_philosopher *table)
 {
-	philo = change_state(philo, THINK, table);
 	while (philo->l_fork->free_fork == 1 && philo->r_fork->free_fork == 1)
 		;
 	if (table->is_dead != 0 || table->limit_eat == table->nb_philo)
@@ -58,6 +57,7 @@ t_philo
 	ft_usleep((unsigned int)table->time_sleep);
 	if (table->is_dead != 0 || table->limit_eat == table->nb_philo)
 		return (philo);
+	philo = change_state(philo, THINK, table);
 	return (philo);
 }
 
