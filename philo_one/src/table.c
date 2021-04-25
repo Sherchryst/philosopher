@@ -6,13 +6,13 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 21:11:57 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/25 17:21:20 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/25 17:25:51 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_one.h"
 
-void
+t_philo
 	take_a_seat(t_philosopher *table, int place)
 {
 	t_philo philo;
@@ -27,6 +27,7 @@ void
 		philo.l_fork = &table->forks[0];
 	else
 		philo.l_fork = &table->forks[place + 1];
+	return(philo);
 }
 
 t_fork
