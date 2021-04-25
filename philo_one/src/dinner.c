@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 14:46:56 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/23 22:13:03 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/25 17:22:21 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,10 @@ void
 	philos = (t_philo*)malloc(sizeof(t_philo) * table->nb_philo);
 	if (plate == NULL || philos == NULL)
 		return ;
-	share_the_forks(table, &table->forks);
+	table->forks = share_the_forks(table);
 	i = -1;
 	while (++i < table->nb_philo)
-		take_a_seat(table, &(philos[i]), i);
+		philos[i] = take_a_seat(table, i);
 	i = -1;
 	while (++i < table->nb_philo)
 		pthread_create(plate + i, NULL, init_routine, philos + i);

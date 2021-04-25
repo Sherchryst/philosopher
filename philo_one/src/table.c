@@ -6,23 +6,27 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 21:11:57 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/23 22:17:59 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/25 17:21:20 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_one.h"
 
 void
-	take_a_seat(t_philosopher *table, t_philo *philo, int place)
+	take_a_seat(t_philosopher *table, int place)
 {
-	philo->info_philo = table;
-	philo->state = 1;
-	philo->id = place + 1;
-	philo->eat = 0;
-	philo->r_fork = &table->forks[place];
-	philo->last_eat = 0;
-	philo->l_fork = (place + 1 == table->nb_philo) ?
-					&table->forks[0] : &table->forks[place + 1];
+	t_philo philo;
+
+	philo.info_philo = table;
+	philo.state = 1;
+	philo.id = place + 1;
+	philo.eat = 0;
+	philo.r_fork = &table->forks[place];
+	philo.last_eat = 0;
+	if (place + 1 == table->nb_philo)
+		philo.l_fork = &table->forks[0];
+	else
+		philo.l_fork = &table->forks[place + 1];
 }
 
 t_fork
