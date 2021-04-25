@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 14:46:56 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/22 19:00:24 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/25 18:38:39 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void
 	while (i < table->nb_philo)
 	{
 		pthread_join(plate[i], NULL);
+		printf("here\n");
 		i++;
 	}
 	free(philos);
@@ -39,7 +40,8 @@ void
 	while (1)
 	{
 		usleep(200);
-		if ((int)time_lapse(table->start) - philos[i].last_eat > table->time_die)
+		if ((int)time_lapse(table->start) - philos[i].last_eat\
+												> table->time_die)
 		{
 			table->is_dead++;
 			printf("%u %i %s\n", time_lapse(philos[i].info_philo->start),
@@ -66,13 +68,12 @@ void
 	philos = (t_philo*)malloc(sizeof(t_philo) * table->nb_philo);
 	if (plate == NULL || philos == NULL)
 		return ;
-	share_the_forks(table, &table->forks);
+	table->forks = share_the_forks(table);
 	i = -1;
 	while (++i < table->nb_philo)
-		take_a_seat(table, &(philos[i]), i);
+		philos[i] = take_a_seat(table, i);
 	i = -1;
 	while (++i < table->nb_philo)
 		pthread_create(plate + i, NULL, init_routine, philos + i);
 	manage_dinner(table, philos, plate);
 }
-

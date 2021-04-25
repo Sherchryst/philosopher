@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 19:54:28 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/22 19:03:23 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/25 17:22:01 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void			init_dinner(t_philosopher *table);
 */
 int				set_the_table(t_philosopher **table);
 int				go_around_the_table(t_philosopher *table, int ac, char **av);
-int				share_the_forks(t_philosopher *table, t_fork **forks);
-void			take_a_seat(t_philosopher *table, t_philo *philo, int place);
+t_fork			*share_the_forks(t_philosopher *table);
+t_philo			take_a_seat(t_philosopher *table, int place);
 
 /*
 ***ROUTINE
