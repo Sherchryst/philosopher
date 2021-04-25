@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 14:46:56 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/25 17:22:21 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/25 18:38:39 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void
 	while (i < table->nb_philo)
 	{
 		pthread_join(plate[i], NULL);
+		printf("here\n");
 		i++;
 	}
 	free(philos);
@@ -45,7 +46,6 @@ void
 			table->is_dead++;
 			printf("%u %i %s\n", time_lapse(philos[i].info_philo->start),
 			philos[i].id, g_msg[DEAD]);
-			printf("");
 			break ;
 		}
 		if (table->limit_eat == table->nb_philo)
