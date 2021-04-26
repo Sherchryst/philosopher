@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 18:53:57 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/26 20:24:07 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/26 20:25:29 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int
 }
 
 int
-	get_philosopher(t_philosopher **info, int ac, char ** av)
+	get_philosopher(t_philosopher **info, int ac, char **av)
 {
 	if (((*info)->nb_philo = get_value(av[1])) == 0)
 		return (1);
