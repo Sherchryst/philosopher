@@ -18,7 +18,10 @@ SRC_DIR	= ./src/
 NAME	= philo_one
 
 SRC		= main.c \
-		  tools.c \
+		  philosopher.c \
+		  philosopher2.c\
+		  tools_time.c \
+		  tools.c
 
 SRCS	= $(addprefix $(SRC_DIR), $(SRC))
 
