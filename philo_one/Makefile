@@ -18,11 +18,7 @@ SRC_DIR	= ./src/
 NAME	= philo_one
 
 SRC		= main.c \
-		  table.c \
 		  tools.c \
-		  tools2.c \
-		  routine.c \
-		  dinner.c
 
 SRCS	= $(addprefix $(SRC_DIR), $(SRC))
 
@@ -31,7 +27,7 @@ OBJ		:= $(SRC:%.c=$(BUILD)/%.o)
 
 # COMPILATION
 CC		= clang
-CFLAGS	= -Wall -Werror -Wextra -Ofast -fno-builtin
+CFLAGS	= -Wall -Werror -Wextra
 DFLAGS	= -MP -MMD
 INC		= -I./include
 

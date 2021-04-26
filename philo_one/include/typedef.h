@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 20:08:46 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/22 18:12:40 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/26 18:26:18 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ typedef struct		s_fork
 
 typedef struct		s_philosopher
 {
-	int				nb_philo;
-	int				time_die;
-	int				time_eat;
-	int				time_sleep;
-	int				nb_eat;
+	unsigned int	nb_philo;
+	unsigned int	time_die;
+	unsigned int	time_eat;
+	unsigned int	time_sleep;
+	unsigned int	nb_eat;
 	int				is_dead;
 	int				limit_eat;
 	int				begin;
@@ -44,18 +44,17 @@ typedef struct		s_philosopher
 	t_fork			*forks;
 	int				print_access;
 	struct timeval	start;
-	int				err_arg;
 }					t_philosopher;
 
 typedef struct		s_philo
 {
-	t_philosopher	*info_philo;
+	t_philosopher	*info;
 	int				state;
 	int				id;
 	int				eat;
-	int				last_eat;
-	t_fork			*r_fork;
-	t_fork			*l_fork;
+	unsigned int	last_eat;
+	t_fork			*fork_r;
+	t_fork			*fork_l;
 }					t_philo;
 
 #endif
