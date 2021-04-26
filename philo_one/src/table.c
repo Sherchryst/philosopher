@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 21:11:57 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/26 17:58:05 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/26 18:07:21 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_philo
 		philo.l_fork = &table->forks[0];
 	else
 		philo.l_fork = &table->forks[place + 1];
-	return(philo);
+	return (philo);
 }
 
 t_fork
