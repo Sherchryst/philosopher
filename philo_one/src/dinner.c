@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 14:46:56 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/26 17:58:03 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/26 18:06:24 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void
 	while (i < table->nb_philo)
 	{
 		pthread_join(plate[i], NULL);
-		printf("here\n");
 		i++;
 	}
 	free(philos);
