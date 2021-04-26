@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 14:46:56 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/25 18:38:39 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/26 17:58:03 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void
 	table->forks = share_the_forks(table);
 	i = -1;
 	while (++i < table->nb_philo)
-		philos[i] = take_a_seat(table, i);
+		philos[i] = take_a_seat(table, i, philos[i]);
 	i = -1;
 	while (++i < table->nb_philo)
 		pthread_create(plate + i, NULL, init_routine, philos + i);

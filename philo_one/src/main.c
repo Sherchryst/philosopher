@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 19:53:57 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/23 14:01:49 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/25 19:23:55 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int
 		return (-1);
 	if (set_the_table(&table) < 0)
 		return (endofdinner(table));
-	if (go_around_the_table(table, ac, av) < 0 ||
+	if (get_philo_info(table, ac, av) < 0 ||
 		table->nb_philo <= 1)
 	{
 		table->err_arg = 1;

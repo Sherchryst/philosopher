@@ -6,17 +6,15 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 21:11:57 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/25 17:25:51 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/26 17:58:05 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_one.h"
 
 t_philo
-	take_a_seat(t_philosopher *table, int place)
+	take_a_seat(t_philosopher *table, int place, t_philo philo)
 {
-	t_philo philo;
-
 	philo.info_philo = table;
 	philo.state = 1;
 	philo.id = place + 1;
@@ -73,7 +71,7 @@ int
 }
 
 int
-	go_around_the_table(t_philosopher *table, int ac, char **av)
+	get_philo_info(t_philosopher *table, int ac, char **av)
 {
 	table->nb_philo = get_value(av[1]);
 	if (table->nb_philo == -1)
