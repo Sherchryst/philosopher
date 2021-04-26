@@ -6,14 +6,14 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 19:53:57 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/26 19:31:06 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/26 19:54:34 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_one.h"
 
-static int
-	init_philo_info(t_philosopher **info)
+int
+	init_philosopher(t_philosopher **info)
 {
 	(*info) = (t_philosopher*)malloc(sizeof(t_philosopher));
 	if ((*info) == NULL)
@@ -30,7 +30,7 @@ static int
 	return (0);
 }
 
-static int
+int
 	get_value(char *str)
 {
 	unsigned int	ret;
@@ -43,8 +43,8 @@ static int
 	return ((str[i] == '\0') ? ret : 0);
 }
 
-static int
-	get_philo_info(t_philosopher **info, int ac, char ** av)
+int
+	get_philosopher(t_philosopher **info, int ac, char ** av)
 {
 	if (((*info)->nb_philo = get_value(av[1])) == 0)
 		return (1);
@@ -85,8 +85,9 @@ int
 
 	if (ac != 5 && ac != 6)
 		return (ft_error("wrong number of argument"));
-	if (init_philo_info(&info) == 1)
+	if (init_philosopher(&info) == 1)
 		return (ft_error("memory allocation failed"));
-	if (get_philo_info(&info, ac, av) == 1 || info->nb_philo <= 1)
+	if (get_philosopher(&info, ac, av) == 1 || info->nb_philo <= 1)
 		return (endofprog(info));
+	launch_philosopher(info);
 }

@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 19:54:28 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/26 19:09:18 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/26 20:14:23 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,24 @@
 # include "typedef.h"
 
 /*
+***PHILOSOPHER
+*/
+void			launch_philosopher(t_philosopher *info);
+void			*philosopher(void *data);
+
+/*
+***TOOLS_TIME
+*/
+unsigned int	time_lapse(struct timeval time);
+void			ft_usleep(unsigned int time_wait);
+
+/*
 ***TOOLS
 */
-int			ft_error(char *error);
+int				ft_error(char *error);
+t_fork			*init_mutex(t_philosopher *info);
+t_philo			create_philos(t_philosopher *infos, int i, t_philo philo);
+void			take_fork(t_philo *philo);
+t_philo			*free_fork(t_philo *philo);
 
 #endif
