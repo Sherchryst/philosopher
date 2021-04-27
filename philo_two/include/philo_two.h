@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_one.h                                        :+:      :+:    :+:   */
+/*   philo_two.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 19:54:28 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 12:27:28 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 12:29:46 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_ONE_H
-# define PHILO_ONE_H
+#ifndef PHILO_TWO_H
+# define PHILO_TWO_H
 
 # define DEAD	0
 # define THINK	1
@@ -27,6 +27,7 @@
 # include <pthread.h>
 # include <sys/time.h>
 # include <semaphore.h>
+
 # include "typedef.h"
 
 /*
