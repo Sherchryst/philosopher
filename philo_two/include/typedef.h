@@ -6,14 +6,14 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 20:08:46 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 12:27:34 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 13:10:04 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TYPEDEF_H
 # define TYPEDEF_H
 
-# include "philo_one.h"
+# include "philo_two.h"
 
 static const char	*g_msg[5] =
 {
