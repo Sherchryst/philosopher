@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 20:08:46 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 13:10:04 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 13:14:27 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ typedef struct		s_philosopher
 	unsigned int	time_eat;
 	unsigned int	time_sleep;
 	unsigned int	nb_eat;
-	int				is_dead;
 	int				limit_eat;
+	int				is_dead;
 	int				begin;
 	sem_t			*forks;
 	int				print_access;
