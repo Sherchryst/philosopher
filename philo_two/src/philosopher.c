@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:00:21 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 13:02:27 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 13:05:37 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void
 	ft_clean(t_philosopher *info)
 {
 	sem_close(info->forks);
-	sem_unlink("fork");
+	sem_unlink("forks");
 	free(info);
 }
 
