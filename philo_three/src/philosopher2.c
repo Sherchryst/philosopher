@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 23:00:12 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 23:32:48 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 23:50:26 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void
 {
 	t_philo			*philo;
 	t_philosopher	*info;
-	int				i;
+	unsigned int	i;
 
 	i = 0;
 	philo = (t_philo *)data;
@@ -78,7 +78,7 @@ void
 			break ;
 		}
 	}
-	while (i < (int)info->nb_philo)
+	while (i < info->nb_philo)
 	{
 		i++;
 		sem_post(info->eat);

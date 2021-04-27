@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:00:21 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 23:24:51 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 23:49:35 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,22 @@ static void
 static void
 	monitor_philosopher(t_philosopher *info, pid_t id[])
 {
-	int i;
+	unsigned int	i;
 
 	i = 0;
-	while (i < (int)info->nb_philo)
+	while (i < info->nb_philo)
 	{
 		sem_post(info->begin);
 		i++;
 	}
 	i = 0;
-	while (i < (int)info->nb_philo)
+	while (i < info->nb_philo)
 	{
 		sem_wait(info->eat);
 		i++;
 	}
 	i = 0;
-	while (i < (int)info->nb_philo)
+	while (i < info->nb_philo)
 	{
 		kill(id[i], 9);
 		waitpid(id[i], NULL, 0);
@@ -56,16 +56,16 @@ static void
 void
 	launch_philosopher(t_philosopher *info)
 {
-	int		i;
-	t_philo	*philo;
-	pid_t	id[info->nb_philo];
+	unsigned int	i;
+	t_philo			*philo;
+	pid_t			id[info->nb_philo];
 
 	philo = (t_philo*)malloc(sizeof(t_philo));
 	if (philo == NULL)
 		return ;
 	create_sem(info);
-	i = -1;
-	while (++i < (int)info->nb_philo)
+	i = 0;
+	while (i < (int)info->nb_philo)
 	{
 		id[i] = fork();
 		if (id[i] == 0)
@@ -73,12 +73,10 @@ void
 			philo = create_philos(info, i, philo);
 			break ;
 		}
+		i++;
 	}
-	if (i == (int)info->nb_philo)
+	if (i == info->nb_philo)
 		i--;
-	if (id[i] != 0)
-		monitor_philosopher(info, id);
-	else
-		philosopher(philo);
+	(id[i] != 0) ? monitor_philosopher(info, id) : philosopher(philo);
 	free(philo);
 }
