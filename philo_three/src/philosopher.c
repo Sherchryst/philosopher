@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:00:21 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 20:18:05 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 23:24:51 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,78 +15,70 @@
 static void
 	ft_clean(t_philosopher *info)
 {
+	sem_close(info->begin);
+	sem_close(info->print);
+	sem_close(info->eat);
 	sem_close(info->forks);
 	sem_unlink("forks");
+	sem_unlink("print");
+	sem_unlink("start");
+	sem_unlink("eat");
 	free(info);
 }
 
 static void
-	join_thread(t_philosopher *info, t_philo *philos, pthread_t *philo)
+	monitor_philosopher(t_philosopher *info, pid_t id[])
 {
-	unsigned int i;
+	int i;
 
 	i = 0;
-	while (i < info->nb_philo)
+	while (i < (int)info->nb_philo)
 	{
-		pthread_join(philo[i], NULL);
+		sem_post(info->begin);
 		i++;
 	}
-	free(philos);
-	free(philo);
+	i = 0;
+	while (i < (int)info->nb_philo)
+	{
+		sem_wait(info->eat);
+		i++;
+	}
+	i = 0;
+	while (i < (int)info->nb_philo)
+	{
+		kill(id[i], 9);
+		waitpid(id[i], NULL, 0);
+		i++;
+	}
 	ft_clean(info);
-}
-
-static void
-	monitor_philosopher(t_philosopher *info, t_philo *philos, pthread_t *philo)
-{
-	unsigned int i;
-
-	gettimeofday(&info->start, NULL);
-	info->begin = 1;
-	i = 0;
-	while (1)
-	{
-		usleep(200);
-		if (time_lapse(info->start) - philos[i].last_eat > info->time_die)
-		{
-			info->is_dead++;
-			printf("%u %i %s\n", time_lapse(philos[i].info->start),
-			philos[i].id, g_msg[DEAD]);
-			break ;
-		}
-		if (info->limit_eat == info->nb_philo)
-			break ;
-		i++;
-		if (i == info->nb_philo)
-			i = 0;
-	}
-	join_thread(info, philos, philo);
 }
 
 void
 	launch_philosopher(t_philosopher *info)
 {
-	unsigned int	i;
-	t_philo			*philos;
-	pthread_t		*philo;
+	int		i;
+	t_philo	*philo;
+	pid_t	id[info->nb_philo];
 
-	philo = (pthread_t*)malloc(sizeof(pthread_t) * info->nb_philo);
-	philos = (t_philo*)malloc(sizeof(t_philo) * info->nb_philo);
-	if (philo == NULL || philos == NULL)
+	philo = (t_philo*)malloc(sizeof(t_philo));
+	if (philo == NULL)
 		return ;
-	sem_unlink("forks");
-	info->forks = sem_open("forks", O_CREAT | O_EXCL, 0644, info->nb_philo / 2);
-	i = 0;
-	while (i < info->nb_philo)
+	create_sem(info);
+	i = -1;
+	while (++i < (int)info->nb_philo)
 	{
-		philos[i] = create_philos(info, i, philos[i]);
-		i++;
+		id[i] = fork();
+		if (id[i] == 0)
+		{
+			philo = create_philos(info, i, philo);
+			break ;
+		}
 	}
-	i = 0;
-	while (i < info->nb_philo)
-	{
-		pthread_create(philo + i, NULL, philosopher, philos + i);
-		i++;
-	}
-	monitor_philosopher(info, philos, philo);
+	if (i == (int)info->nb_philo)
+		i--;
+	if (id[i] != 0)
+		monitor_philosopher(info, id);
+	else
+		philosopher(philo);
+	free(philo);
 }

@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:08:14 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 20:33:18 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 23:24:54 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,25 @@ t_philo
 	philo->id = i + 1;
 	philo->eat = 0;
 	philo->last_eat = 0;
+	return (philo);
+}
+
+void
+	take_fork(t_philo *philo, t_philosopher *info)
+{
+	sem_wait(info->forks);
+	if (philo->info->is_dead == 0)
+	{
+		sem_wait(info->print);
+		aff(philo, FORK);
+		aff(philo, FORK);
+		sem_post(info->print);
+	}
+}
+
+t_philo
+	*free_fork(t_philo *philo, t_philosopher *info)
+{
+	sem_post(info->forks);
 	return (philo);
 }

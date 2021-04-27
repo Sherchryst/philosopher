@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 19:54:28 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 20:17:09 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 23:24:54 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,12 @@
 ***PHILOSOPHER
 */
 void			launch_philosopher(t_philosopher *info);
-void			*philosopher(void *data);
+void			philosopher(t_philo *philo);
+
+/*
+***AFF
+*/
+void			display_philo(t_philo *philo, int state);
 
 /*
 ***TOOLS_TIME
@@ -49,5 +54,9 @@ void			ft_usleep(unsigned int time_wait);
 ***TOOLS
 */
 int				ft_error(char *error);
+void			create_sem(t_philosopher *info);
+t_philo			*create_philos(t_philosopher *infos, int i, t_philo *philo);
+t_philo			*free_fork(t_philo *philo, t_philosopher *info);
+void			take_fork(t_philo *philo, t_philosopher *info);
 
 #endif
