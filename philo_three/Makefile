@@ -17,7 +17,12 @@ SRC_DIR	= ./src/
 # FILES
 NAME	= philo_three
 
-SRC		= main.c
+SRC		= main.c \
+		  tools.c \
+		  display.c \
+		  tools_time.c \
+		  philosopher.c \
+		  philosopher2.c
 
 SRCS	= $(addprefix $(SRC_DIR), $(SRC))
 
@@ -33,7 +38,7 @@ INC		= -I./include
 $(NAME):$(OBJ)
 	@$(CC) $(INC) $(CFLAGS) $(OBJ) -o $(NAME) -lpthread
 	@echo ""
-	@echo "${_GREEN}The executable file of ${Color_Off}${_BRed}"
+	@echo "${_GREEN}The executable file of ${Color_Off}${_Purple}"
 	@echo " ██▓███   ██░ ██  ██▓ ██▓     ▒█████▄        ▄▄▄█████▓ ██░ ██  ██▀███  ▓█████ ▓█████ "
 	@echo "▓██░  ██▒▓██░ ██▒▓██▒▓██▒    ▒██▒  ██▒         ▓██▒ ▓▒▓██░ ██▒▓██ ▒ ██▒▓█   ▀ ▓█   ▀ "
 	@echo "▓██░ ██▓▒▒██▀▀██░▒██▒▒██░    ▒██░  ██▒▒        ▓██░ ▒░▒██▀▀██░▓██ ░▄█ ▒▒███   ▒███   "

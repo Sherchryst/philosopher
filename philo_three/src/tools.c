@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:08:14 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 23:24:54 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 23:32:48 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void
 	if (philo->info->is_dead == 0)
 	{
 		sem_wait(info->print);
-		aff(philo, FORK);
-		aff(philo, FORK);
+		display_philo(philo, FORK);
+		display_philo(philo, FORK);
 		sem_post(info->print);
 	}
 }

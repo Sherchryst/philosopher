@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 23:00:12 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 23:11:15 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 23:32:48 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_philo
 {
 	philo->state = state;
 	sem_wait(info->print);
-	aff(philo, state);
+	display_philo(philo, state);
 	sem_post(info->print);
 	return (philo);
 }
@@ -73,7 +73,7 @@ void
 		if (time_lapse(info->start) - philo->last_eat >= info->time_die)
 		{
 			sem_wait(info->print);
-			aff(philo, DEAD);
+			display_philo(philo, DEAD);
 			info->is_dead++;
 			break ;
 		}

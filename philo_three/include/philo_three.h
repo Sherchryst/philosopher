@@ -6,12 +6,12 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 19:54:28 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 23:24:54 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 23:32:58 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_TWO_H
-# define PHILO_TWO_H
+#ifndef PHILO_THREE_H
+# define PHILO_THREE_H
 
 # define DEAD	0
 # define THINK	1
@@ -40,7 +40,7 @@ void			launch_philosopher(t_philosopher *info);
 void			philosopher(t_philo *philo);
 
 /*
-***AFF
+***DISPLAY
 */
 void			display_philo(t_philo *philo, int state);
 

@@ -6,11 +6,11 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 13:19:47 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 23:23:33 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 23:34:28 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_one.h"
+#include "philo_three.h"
 
 void
 	ft_bzero(void *s, size_t n)
@@ -87,7 +87,7 @@ size_t
 }
 
 void
-	display(t_philo *philo, int state)
+	display_philo(t_philo *philo, int state)
 {
 	char	buff[33];
 	int		i;
