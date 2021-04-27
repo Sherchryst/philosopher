@@ -15,9 +15,13 @@ BUILD	= ./.build
 SRC_DIR	= ./src/
 
 # FILES
-NAME	= philo_one
+NAME	= philo_two
 
-SRC		=
+SRC		= main.c \
+		  tools.c \
+		  tools_time.c \
+		  philosopher.c \
+		  philosopher2.c
 
 SRCS	= $(addprefix $(SRC_DIR), $(SRC))
 
