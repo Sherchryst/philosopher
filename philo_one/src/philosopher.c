@@ -6,13 +6,13 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:00:21 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/26 20:24:07 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/26 20:36:56 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_one.h"
 
-void
+static void
 	ft_clean(t_philosopher *info)
 {
 	unsigned int i;
@@ -28,7 +28,7 @@ void
 	free(info);
 }
 
-void
+static void
 	join_thread(t_philosopher *info, t_philo *philos, pthread_t *philo)
 {
 	unsigned int i;
@@ -44,7 +44,7 @@ void
 	ft_clean(info);
 }
 
-void
+static void
 	monitor_philosopher(t_philosopher *info, t_philo *philos, pthread_t *philo)
 {
 	unsigned int i;
