@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:00:21 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 13:05:37 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 14:42:55 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void
 	if (philo == NULL || philos == NULL)
 		return ;
 	sem_unlink("forks");
-	info->forks = sem_open("forks", 0100 | 0200, 0644, info->nb_philo / 2);
+	info->forks = sem_open("forks", O_CREAT | O_EXCL, 0644, info->nb_philo / 2);
 	i = 0;
 	while (i < info->nb_philo)
 	{
