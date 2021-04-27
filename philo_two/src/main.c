@@ -6,11 +6,11 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 18:53:57 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 12:26:32 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 12:45:46 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_one.h"
+#include "philo_two.h"
 
 int
 	init_philosopher(t_philosopher **info)
@@ -72,7 +72,6 @@ int
 {
 	if (info->nb_philo == 1)
 		fprintf(stderr, "%s", "he stayed forever alone: ");
-	free(info->print);
 	free(info);
 	return (ft_error("error in arguments"));
 }

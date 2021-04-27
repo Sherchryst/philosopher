@@ -6,11 +6,11 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:06:18 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/26 20:24:30 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 12:46:02 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_one.h"
+#include "philo_two.h"
 
 unsigned int
 	time_lapse(struct timeval time)

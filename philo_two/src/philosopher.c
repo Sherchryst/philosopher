@@ -6,25 +6,17 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:00:21 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/26 20:36:56 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 13:02:27 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_one.h"
+#include "philo_two.h"
 
 static void
 	ft_clean(t_philosopher *info)
 {
-	unsigned int i;
-
-	i = 0;
-	while (i < info->nb_philo)
-	{
-		free(info->forks[i].fork);
-		i++;
-	}
-	free(info->print);
-	free(info->forks);
+	sem_close(info->forks);
+	sem_unlink("fork");
 	free(info);
 }
 
@@ -82,7 +74,8 @@ void
 	philos = (t_philo*)malloc(sizeof(t_philo) * info->nb_philo);
 	if (philo == NULL || philos == NULL)
 		return ;
-	info->forks = init_mutex(info);
+	sem_unlink("forks");
+	info->forks = sem_open("forks", 0100 | 0200, 0644, info->nb_philo / 2);
 	i = 0;
 	while (i < info->nb_philo)
 	{

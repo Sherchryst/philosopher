@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 19:54:28 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 12:29:46 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 12:54:10 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define FORK	4
 
 # include <time.h>
+# include <fcntl.h>
 # include <stdio.h>
 # include <string.h>
 # include <unistd.h>
@@ -47,7 +48,7 @@ void			ft_usleep(unsigned int time_wait);
 */
 int				ft_error(char *error);
 t_philo			create_philos(t_philosopher *infos, int i, t_philo philo);
-void			take_fork(t_philo *philo);
-t_philo			*free_fork(t_philo *philo);
+void			take_fork(t_philo *philo, t_philosopher *info);
+t_philo			*free_fork(t_philo *philo, t_philosopher *info);
 
 #endif
