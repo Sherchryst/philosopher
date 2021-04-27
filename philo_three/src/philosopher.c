@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:00:21 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 23:49:35 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/28 00:05:36 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void
 		return ;
 	create_sem(info);
 	i = 0;
-	while (i < (int)info->nb_philo)
+	while (i < info->nb_philo)
 	{
 		id[i] = fork();
 		if (id[i] == 0)

@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:03:23 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/26 20:24:07 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/28 00:05:39 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_philo
 {
 	while (philo->fork_l->free_fork == 1 && philo->fork_r->free_fork == 1)
 		;
-	if (info->is_dead != 0 || info->limit_eat == (int)info->nb_philo)
+	if (info->is_dead != 0 || info->limit_eat == info->nb_philo)
 		return (philo);
 	take_fork(philo);
 	philo = change_state(philo, EAT, info);
@@ -50,12 +50,12 @@ t_philo
 		return (free_fork(philo));
 	philo->last_eat = time_lapse(info->start);
 	ft_usleep(info->time_eat);
-	if (info->is_dead != 0 || info->limit_eat == (int)info->nb_philo)
+	if (info->is_dead != 0 || info->limit_eat == info->nb_philo)
 		return (free_fork(philo));
 	philo = free_fork(philo);
 	philo = change_state(philo, SLEEP, info);
 	ft_usleep(info->time_sleep);
-	if (info->is_dead != 0 || info->limit_eat == (int)info->nb_philo)
+	if (info->is_dead != 0 || info->limit_eat == info->nb_philo)
 		return (philo);
 	philo = change_state(philo, THINK, info);
 	return (philo);
@@ -73,7 +73,7 @@ void
 		;
 	if (philo->id % 2 == 0)
 		usleep(1000);
-	while (info->is_dead == 0 && info->limit_eat != (int)info->nb_philo)
+	while (info->is_dead == 0 && info->limit_eat != info->nb_philo)
 		philo = routine(philo, info);
 	return (data);
 }

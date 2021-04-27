@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:08:14 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/26 20:24:07 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/28 00:03:25 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_philo
 	philo.eat = 0;
 	philo.fork_r = &infos->forks[i];
 	philo.last_eat = 0;
-	if (i + 1 == (int)infos->nb_philo)
+	if (i + 1 == infos->nb_philo)
 		philo.fork_l = &infos->forks[0];
 	else
 		philo.fork_l = &infos->forks[i + 1];

@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 23:00:12 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 23:50:26 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/28 00:03:00 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int
 	if (info->limit_eat == -1)
 		return (0);
 	philo->eat++;
-	if (philo->eat == (int)info->nb_eat)
+	if (philo->eat == info->nb_eat)
 		sem_post(info->eat);
-	if (info->limit_eat == (int)info->nb_philo)
+	if (info->limit_eat == info->nb_philo)
 		return (1);
 	return (0);
 }
