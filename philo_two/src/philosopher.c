@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:00:21 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 14:42:55 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 14:45:47 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void
 			philos[i].id, g_msg[DEAD]);
 			break ;
 		}
-		if ((unsigned int)info->limit_eat == info->nb_philo)
+		if (info->limit_eat == info->nb_philo)
 			break ;
 		i++;
 		if (i == info->nb_philo)
