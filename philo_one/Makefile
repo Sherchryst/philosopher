@@ -35,7 +35,7 @@ DFLAGS	= -MP -MMD
 INC		= -I./include
 
 $(NAME):$(OBJ)
-	@$(CC) $(INC) $(OBJ) -o $(NAME) -lpthread
+	@$(CC) $(CFLAGS) $(INC) $(OBJ) -o $(NAME) -lpthread
 	@echo ""
 	@echo "${_GREEN}The executable file of ${Color_Off}${_Orange}"
 	@echo "   ▄███████▄    ▄█    █▄     ▄█   ▄█        ▄██████▄            ▄██████▄  ███▄▄▄▄      ▄████████ "
@@ -69,7 +69,7 @@ $(BUILD):
 $(BUILD)/%.o: $(SRC_DIR)%.c | $(BUILD)
 	@printf "\033[1;34mExecute: \t\033[1;33mCompilation of \033[1;36m$(notdir $<) \033[0m \
 	 %-33.33s\r"
-	@$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@ $(INC)
+	@$(CC) $(DFLAGS) -c $< -o $@ $(INC)
 
 -include $(DEP)
 
