@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 13:19:47 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/27 23:34:28 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/28 14:56:41 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void
 	i = add_time(buff, time_lapse(philo->info->start));
 	buff[i] = ' ';
 	i++;
-	i = i + add_time(&buff[i], (unsigned int)philo->id);
+	i = i + add_time(&buff[i], philo->id);
 	buff[i] = ' ';
 	i++;
 	ft_memcpy(&buff[i], g_msg[state], ft_strlen(g_msg[state]));
