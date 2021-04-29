@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:00:21 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/28 00:05:36 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/29 09:41:42 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,9 @@ void
 {
 	unsigned int	i;
 	t_philo			*philo;
-	pid_t			id[info->nb_philo];
+	pid_t			*id;
 
+	id = (pid_t*)malloc(sizeof(pid_t) * info->nb_philo);
 	philo = (t_philo*)malloc(sizeof(t_philo));
 	if (philo == NULL)
 		return ;
@@ -79,4 +80,5 @@ void
 		i--;
 	(id[i] != 0) ? monitor_philosopher(info, id) : philosopher(philo);
 	free(philo);
+	free(id);
 }
