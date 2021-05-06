@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:03:23 by sgah              #+#    #+#             */
-/*   Updated: 2021/05/06 14:05:43 by sgah             ###   ########.fr       */
+/*   Updated: 2021/05/06 14:36:33 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 t_philo
 	*change_state(t_philo *philo, int state, t_philosopher *info)
 {
+	pthread_mutex_lock(info->print);
 	philo->state = state;
 	if (philo->info->is_dead != 0 ||
 	(unsigned int)info->limit_eat == info->nb_philo)
@@ -22,6 +23,7 @@ t_philo
 	printf("%u %i %s\n", time_lapse(philo->info->start),
 	philo->id, g_msg[state]);
 	return (philo);
+	pthread_mutex_lock(info->print);
 }
 
 int
@@ -44,13 +46,14 @@ t_philo
 		return (philo);
 	take_fork(philo);
 	philo = change_state(philo, EAT, info);
-	add_eat(philo, info) == 1;
+	if (add_eat(philo, info) == 1)
+		return (free_fork(philo));
 	philo->last_eat = time_lapse(info->start);
 	ft_usleep(info->time_eat);
 	if (info->is_dead != 0 || info->limit_eat == info->nb_philo)
 		return (free_fork(philo));
-	philo = change_state(philo, SLEEP, info);
 	philo = free_fork(philo);
+	philo = change_state(philo, SLEEP, info);
 	ft_usleep(info->time_sleep);
 	if (info->is_dead != 0 || info->limit_eat == info->nb_philo)
 		return (philo);
