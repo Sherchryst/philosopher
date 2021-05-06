@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:08:14 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/28 00:03:25 by sgah             ###   ########.fr       */
+/*   Updated: 2021/05/06 19:10:21 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ t_fork
 	{
 		fork_philo[i].fork = malloc(sizeof(pthread_mutex_t));
 		pthread_mutex_init(fork_philo[i].fork, NULL);
-		fork_philo[i].free_fork = 0;
 		i++;
 	}
 	return (fork_philo);
@@ -61,8 +60,6 @@ void
 {
 	pthread_mutex_lock(philo->fork_l->fork);
 	pthread_mutex_lock(philo->fork_r->fork);
-	philo->fork_l->free_fork = 1;
-	philo->fork_r->free_fork = 1;
 	if (philo->info->is_dead == 0)
 	{
 		printf("%u %i %s\n", time_lapse(philo->info->start),
@@ -77,7 +74,5 @@ t_philo
 {
 	pthread_mutex_unlock(philo->fork_l->fork);
 	pthread_mutex_unlock(philo->fork_r->fork);
-	philo->fork_l->free_fork = 0;
-	philo->fork_r->free_fork = 0;
 	return (philo);
 }
