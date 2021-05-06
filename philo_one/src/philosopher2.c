@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:03:23 by sgah              #+#    #+#             */
-/*   Updated: 2021/05/02 20:13:59 by sgah             ###   ########.fr       */
+/*   Updated: 2021/05/06 13:36:17 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,8 @@ t_philo
 	if (philo->info->is_dead != 0 ||
 	(unsigned int)info->limit_eat == info->nb_philo)
 		return (philo);
-	pthread_mutex_lock(philo->info->print);
 	printf("%u %i %s\n", time_lapse(philo->info->start),
 	philo->id, g_msg[state]);
-	pthread_mutex_unlock(philo->info->print);
 	return (philo);
 }
 
