@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:03:23 by sgah              #+#    #+#             */
-/*   Updated: 2021/05/06 13:36:17 by sgah             ###   ########.fr       */
+/*   Updated: 2021/05/06 14:05:43 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,13 @@ t_philo
 		return (philo);
 	take_fork(philo);
 	philo = change_state(philo, EAT, info);
-	if (add_eat(philo, info) == 1)
-		return (free_fork(philo));
+	add_eat(philo, info) == 1;
 	philo->last_eat = time_lapse(info->start);
 	ft_usleep(info->time_eat);
 	if (info->is_dead != 0 || info->limit_eat == info->nb_philo)
 		return (free_fork(philo));
-	philo = free_fork(philo);
 	philo = change_state(philo, SLEEP, info);
+	philo = free_fork(philo);
 	ft_usleep(info->time_sleep);
 	if (info->is_dead != 0 || info->limit_eat == info->nb_philo)
 		return (philo);
