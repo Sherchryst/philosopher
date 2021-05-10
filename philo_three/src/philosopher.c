@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:00:21 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/28 00:05:36 by sgah             ###   ########.fr       */
+/*   Updated: 2021/05/10 15:30:17 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void
 
 	id = (pid_t*)malloc(sizeof(pid_t) * info->nb_philo);
 	philo = (t_philo*)malloc(sizeof(t_philo));
-	if (philo == NULL)
+	if (philo == NULL || id == NULL)
 		return ;
 	create_sem(info);
 	i = 0;
