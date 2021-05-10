@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 13:19:47 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/29 09:43:53 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/28 14:56:41 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,10 @@ size_t
 void
 	display_philo(t_philo *philo, int state)
 {
-	char	buff[BUFFER_SIZE];
+	char	buff[33];
 	int		i;
 
-	ft_bzero(buff, BUFFER_SIZE);
+	ft_bzero(buff, 33);
 	i = add_time(buff, time_lapse(philo->info->start));
 	buff[i] = ' ';
 	i++;

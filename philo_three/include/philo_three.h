@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 19:54:28 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/29 09:43:12 by sgah             ###   ########.fr       */
+/*   Updated: 2021/04/27 23:32:58 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # define EAT	2
 # define SLEEP	3
 # define FORK	4
-
-# define BUFFER_SIZE 33
 
 # include <time.h>
 # include <fcntl.h>
