@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:03:23 by sgah              #+#    #+#             */
-/*   Updated: 2021/05/10 14:39:30 by sgah             ###   ########.fr       */
+/*   Updated: 2021/05/10 15:22:17 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int
 t_philo
 	*routine(t_philo *philo, t_philosopher *info)
 {
-	while (philo->fork_l->i == 1 && philo->fork_r->i == 1)
+	while (philo->fork_l->index == 1 && philo->fork_r->index == 1)
 		;
 	if (info->is_dead != 0 || info->limit_eat == info->nb_philo)
 		return (philo);
