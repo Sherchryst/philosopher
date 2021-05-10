@@ -6,7 +6,7 @@
 /*   By: sgah <sgah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 20:08:46 by sgah              #+#    #+#             */
-/*   Updated: 2021/04/26 18:26:18 by sgah             ###   ########.fr       */
+/*   Updated: 2021/05/06 19:09:34 by sgah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static const char	*g_msg[5] =
 typedef struct		s_fork
 {
 	pthread_mutex_t	*fork;
-	int				free_fork;
 }					t_fork;
 
 typedef struct		s_philosopher
