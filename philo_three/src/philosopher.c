@@ -58,8 +58,9 @@ void
 {
 	unsigned int	i;
 	t_philo			*philo;
-	pid_t			id[info->nb_philo];
+	pid_t			*id;
 
+	id = (pid_t*)malloc(sizeof(pid_t) * info->nb_philo);
 	philo = (t_philo*)malloc(sizeof(t_philo));
 	if (philo == NULL)
 		return ;
@@ -79,4 +80,5 @@ void
 		i--;
 	(id[i] != 0) ? monitor_philosopher(info, id) : philosopher(philo);
 	free(philo);
+	free(id);
 }
